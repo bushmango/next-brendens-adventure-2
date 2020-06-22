@@ -3,6 +3,7 @@ import React from 'react'
 import { LinkButton } from './LinkButton'
 import { sosGame } from './sosGame-sidecar'
 import { Gold } from './Gold'
+import { displayId } from './displayId'
 
 export const Inventory = () => {
   let state = sosGame.useSubscribe()
@@ -16,7 +17,7 @@ export const Inventory = () => {
       {state.inventory.length === 0 ? 'no items' : ''}
       {_.map(state.inventory, (c, cIdx) => (
         <div key={cIdx}>
-          <LinkButton onClick={() => {}}>{c.id}</LinkButton>
+          <LinkButton onClick={() => {}}>{displayId(c.id)}</LinkButton>
           {c.equippable && !c.isEquipped ? (
             <span>
               {' '}

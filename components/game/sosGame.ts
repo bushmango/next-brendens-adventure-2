@@ -25,6 +25,8 @@ export interface IState {
   inventory: IItem[]
   gold: number
   turnNumber: number
+  hour: number
+  day: number
 }
 
 export const getSos = sos.createLazySos<IState>('sosGame', 1, () => ({
@@ -33,6 +35,8 @@ export const getSos = sos.createLazySos<IState>('sosGame', 1, () => ({
   inventory: { default: [] },
   gold: { default: 0 },
   turnNumber: { default: 1 },
+  hour: {default: 1},
+  day: {default: 1}
 }))
 export const useSubscribe = sos.createUseSubscribe(getSos)
 
@@ -43,7 +47,9 @@ export function gameRestart() {
     ds.locationId = 'road'
     ds.inventory = []
     ds.gold = 5
-    ds.turnNumber = 1
+    ds.turnNumber = 0
+    ds.hour = 1
+    ds.day = 1
   })
 }
 
@@ -60,11 +66,13 @@ export function _navigateToDirection(direction: ILocationDirection) {
   } else {
     getSos().change((ds) => {
       ds.locationId = nextLoc || ''
-      ds.turnNumber++
-      if(ds.turnNumber === 11){
-        ds.turnNumber = 1
-      }
       
+      ds.turnNumber++
+
+      const hoursInDay = 10
+      ds.day = Math.floor(ds.turnNumber / hoursInDay) + 1
+      ds.hour = ds.turnNumber % hoursInDay + 1
+     
 
     })
   }

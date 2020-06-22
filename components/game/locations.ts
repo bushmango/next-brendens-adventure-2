@@ -59,7 +59,7 @@ export function initLocations() {
           if (
             deed 
           ) {
-            return 'forest'
+            return 'your-main-room'
           }
           return 'main-room'
         },
@@ -75,6 +75,12 @@ export function initLocations() {
         { id: 'farm-deed', cost: 5 },
       
       ],
+    },
+
+    {
+      id: 'your-main-room',
+      desc: 'it smells a little musty and needs some work, but it is yours. ',
+      directions: [{ id: 'exit-to-road', toLocationId: 'road' }],
     },
 
 

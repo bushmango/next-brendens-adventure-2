@@ -28,7 +28,7 @@ export const Layout = (props: { children: React.ReactNode; title: string }) => {
       </div> */}
 
       <h2>
-        Brendens Adventure! <small>a short romp by Brenden and Stevie</small>
+        Brendens Adventure 2! <small>a short romp by Brenden and Stevie</small>
       </h2>
       <div style={{ padding: 50, maxWidth: 1000 }}>{props.children}</div>
 

@@ -24,6 +24,7 @@ export interface IState {
   locationId: string
   inventory: IItem[]
   gold: number
+  turnNumber: number
 }
 
 export const getSos = sos.createLazySos<IState>('sosGame', 1, () => ({
@@ -31,6 +32,7 @@ export const getSos = sos.createLazySos<IState>('sosGame', 1, () => ({
   locationId: { default: '' },
   inventory: { default: [] },
   gold: { default: 0 },
+  turnNumber: { default: 1 },
 }))
 export const useSubscribe = sos.createUseSubscribe(getSos)
 
@@ -57,6 +59,7 @@ export function _navigateToDirection(direction: ILocationDirection) {
   } else {
     getSos().change((ds) => {
       ds.locationId = nextLoc || ''
+      ds.turnNumber++
     })
   }
 }

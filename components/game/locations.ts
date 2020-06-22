@@ -21,37 +21,42 @@ export interface ILocation {
 export function initLocations() {
   let locations: ILocation[] = [
     {
+      id: 'error',
+      desc: 'You should not be here!',
+      directions: [{ id: 'start-over', toLocationId: 'road' }],
+    },
+    {
       id: 'road',
       desc: `You are on a plain dirt road.
       You see a farm to the south.
-      To the north, you see an old castle.
-      To the west, a small path leads into a dark forest.`,
+      To the north, you see an old-castle.
+      To the west, a small-path leads into a dark forest.`,
       directions: [
-        { id: 'south along the road', toLocationId: 'farm' },
-        { id: 'north along the road', toLocationId: 'old castle' },
-        { id: 'west along small path', toLocationId: 'forest entrance' },
+        { id: 'south-along-the-road', toLocationId: 'farm' },
+        { id: 'north-along-the-road', toLocationId: 'old-castle' },
+        { id: 'west-along-small-path', toLocationId: 'forest-entrance' },
       ],
     },
     {
       id: 'farm',
       desc: 'You are at a blueberry farm.',
-      directions: [{ id: 'exit to road', toLocationId: 'road' }],
+      directions: [{ id: 'exit-to-road', toLocationId: 'road' }],
     },
     {
-      id: 'forest monster',
+      id: 'forest-monster',
       desc: 'You are in a dangerous forest. A monster eats you!',
       directions: [{ id: 'you die...', toLocationId: '_restart' }],
     },
     {
-      id: 'forest entrance',
+      id: 'forest-entrance',
       desc:
         'You come across the entrance to a dark and forbidding forest. A chill wind blows.',
       directions: [
-        { id: 'small path', toLocationId: 'road' },
+        { id: 'small-path', toLocationId: 'road' },
         {
-          id: 'enter forest',
+          id: 'enter-forest',
           action: (inventory: IItem[]) => {
-            let sword = _.find(inventory, (c) => c.id === 'wooden sword')
+            let sword = _.find(inventory, (c) => c.id === 'wooden-sword')
             let shield = _.find(inventory, (c) => c.id === 'shield')
 
             if (
@@ -62,7 +67,7 @@ export function initLocations() {
             ) {
               return 'forest'
             }
-            return 'forest monster'
+            return 'forest-monster'
           },
         },
       ],
@@ -71,7 +76,7 @@ export function initLocations() {
       id: 'forest',
       desc: 'You are in a dangerous forest. You hear sticks snapping.',
       directions: [
-        { id: 'small path', toLocationId: 'road' },
+        { id: 'small-path', toLocationId: 'road' },
         { id: 'ruins', toLocationId: 'ruins' },
       ],
     },
@@ -81,27 +86,22 @@ export function initLocations() {
       directions: [{ id: 'Victory!', toLocationId: '_restart' }],
     },
     {
-      id: 'old castle',
-      desc: 'You are in an old castle.',
+      id: 'old-castle',
+      desc: 'You are in an old-castle.',
       directions: [
-        { id: 'exit to road', toLocationId: 'road' },
-        { id: 'enter mysterious building', toLocationId: 'castle shop' },
+        { id: 'exit-to-road', toLocationId: 'road' },
+        { id: 'enter-mysterious-building', toLocationId: 'castle-shop' },
       ],
     },
     {
-      id: 'castle shop',
+      id: 'castle-shop',
       desc: `It is old but there are a few things left to buy.
       There's an old man behind a counter.`,
-      directions: [{ id: 'exit to castle', toLocationId: 'old castle' }],
+      directions: [{ id: 'exit-to-castle', toLocationId: 'old-castle' }],
       shop: [
         { id: 'shield', cost: 2 },
-        { id: 'wooden sword', cost: 1 },
+        { id: 'wooden-sword', cost: 1 },
       ],
-    },
-    {
-      id: 'error',
-      desc: 'You should not be here!',
-      directions: [{ id: 'start over', toLocationId: 'road' }],
     },
   ]
   return locations

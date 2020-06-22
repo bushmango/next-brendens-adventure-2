@@ -15,7 +15,7 @@ export function initItems() {
       isEquipped: false,
     },
     {
-      id: 'wooden sword',
+      id: 'wooden-sword',
       equippable: true,
       isEquipped: false,
     },

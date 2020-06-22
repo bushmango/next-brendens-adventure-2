@@ -22,7 +22,7 @@ export const Shop = (props: { location: ILocation }) => {
                   location && sosGame._buyItem(location, c)
                 }}
               >
-                {displayId(c.id)} <Gold gold={c.cost} />
+                {displayId(c.id)} <Gold gold={c.cost}  hasBackground={false} />
               </LinkButton>
             </div>
           ))}

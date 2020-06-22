@@ -11,7 +11,7 @@ export const Inventory = () => {
     <div>
       <br />
       You have
-      <Gold gold={state.gold} />
+      <Gold gold={state.gold} hasBackground={true} />
       and ... <br />
       {state.inventory.length === 0 ? 'no items' : ''}
       {_.map(state.inventory, (c, cIdx) => (

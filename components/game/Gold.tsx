@@ -8,7 +8,7 @@ export const Gold = (props: { gold: number }) => {
         paddingLeft: '0.1em',
         paddingRight: '0.1em',
         color: 'gold',
-        backgroundColor: '#555',
+        backgroundColor: '#167da6',
         borderRadius: '10px',
         fontSize: '0.8em',
       }}

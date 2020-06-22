@@ -21,6 +21,8 @@ export const GameBrendensAdventure = () => {
   if (!location) {
     return <div>Error, no location!</div>
   }
+  
+  
 
   return (
     <Layout title={`Brenden's Adventure`}>
@@ -33,7 +35,7 @@ export const GameBrendensAdventure = () => {
 
         <br />
         <TurnCounter />
-
+  =
         <DevTools />
       </div>
     </Layout>

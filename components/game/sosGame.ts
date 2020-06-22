@@ -61,6 +61,11 @@ export function _navigateToDirection(direction: ILocationDirection) {
     getSos().change((ds) => {
       ds.locationId = nextLoc || ''
       ds.turnNumber++
+      if(ds.turnNumber === 11){
+        ds.turnNumber = 1
+      }
+      
+
     })
   }
 }

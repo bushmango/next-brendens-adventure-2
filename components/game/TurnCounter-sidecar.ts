@@ -2,5 +2,4 @@
 /* eslint-disable */
 /* tslint:disable */
 export const noop = () => {}
-import * as sosGame from './sosGame'
-export { sosGame }
+export * from './TurnCounter'

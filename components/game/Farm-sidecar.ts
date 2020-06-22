@@ -2,5 +2,5 @@
 /* eslint-disable */
 /* tslint:disable */
 export const noop = () => {}
-import * as sosGame from './sosGame'
-export { sosGame }
+import * as Farm from './Farm'
+export { Farm }

@@ -19,6 +19,9 @@ export function initItems() {
       equippable: true,
       isEquipped: false,
     },
+    {
+      id: 'farm-deed',
+    },
   ]
 
   return items

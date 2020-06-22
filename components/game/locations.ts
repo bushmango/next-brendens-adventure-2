@@ -39,9 +39,46 @@ export function initLocations() {
     },
     {
       id: 'farm',
-      desc: 'You are at a blueberry farm.',
-      directions: [{ id: 'exit-to-road', toLocationId: 'road' }],
+      desc: 'You are at a blueberry farm. There is a small house in the distance.',
+      directions: [{ id: 'exit-to-road', toLocationId: 'road' },
+      { id: 'walk-to-the-house', toLocationId: 'farm-house' },
+      
+    
+      ]
     },
+
+    {
+      id: 'farm-house',
+      desc: 'You have arived at the farm house. You knock and the farmer invites you inside',
+      directions: [{ id: 'exit-to-road', toLocationId: 'road' },
+      {
+        id: 'walk-into-the-house',
+        action: (inventory: IItem[]) => {
+          let deed = _.find(inventory, (c) => c.id === 'farm-deed')
+          
+          if (
+            deed 
+          ) {
+            return 'forest'
+          }
+          return 'main-room'
+        },
+      },
+      ]
+    },
+
+    {
+      id: 'main-room',
+      desc: 'it smells a little musty and the farmer offers to sell you the farm. ',
+      directions: [{ id: 'exit-to-road', toLocationId: 'road' }],
+      shop: [
+        { id: 'farm-deed', cost: 5 },
+      
+      ],
+    },
+
+
+
     {
       id: 'forest-monster',
       desc: 'You are in a dangerous forest. A monster eats you!',

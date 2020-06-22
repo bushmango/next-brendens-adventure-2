@@ -43,6 +43,7 @@ export function gameRestart() {
     ds.locationId = 'road'
     ds.inventory = []
     ds.gold = 5
+    ds.turnNumber = 1
   })
 }
 

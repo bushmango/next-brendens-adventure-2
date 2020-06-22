@@ -5,6 +5,7 @@ import { Inventory } from './Inventory'
 import { Location } from './Location'
 import { Shop } from './Shop'
 import { sosGame } from './sosGame-sidecar'
+import { TurnCounter } from './TurnCounter'
 
 export const GameBrendensAdventure = () => {
   let state = sosGame.useSubscribe()
@@ -29,6 +30,9 @@ export const GameBrendensAdventure = () => {
         <Shop location={location} />
 
         <Inventory />
+
+        <br />
+        <TurnCounter />
 
         <DevTools />
       </div>

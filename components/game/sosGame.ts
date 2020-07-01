@@ -9,6 +9,7 @@ import { initItems, IItem } from './items'
 import { sos } from '../lib/sos-sidecar'
 import _ from 'lodash'
 
+
 let locations: ILocation[]
 export function getLocations() {
   return locations
@@ -72,8 +73,14 @@ export function _navigateToDirection(direction: ILocationDirection) {
       const hoursInDay = 10
       ds.day = Math.floor(ds.turnNumber / hoursInDay) + 1
       ds.hour = ds.turnNumber % hoursInDay + 1
-     
 
+
+      
+        let deed = _.find(ds.inventory, (c) => c.id === 'farm-deed')
+      if (ds.hour === 10 && deed ){
+        ds.gold += 1
+      }
+      
     })
   }
 }

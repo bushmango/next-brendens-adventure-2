@@ -5,6 +5,7 @@ import { sosGame } from './sosGame-sidecar'
 import { Gold } from './Gold'
 import { displayId } from './displayId'
 
+
 export const Inventory = () => {
   let state = sosGame.useSubscribe()
 
